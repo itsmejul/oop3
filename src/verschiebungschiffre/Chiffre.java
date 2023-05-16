@@ -1,5 +1,9 @@
 package verschiebungschiffre;
-
+/**
+ * 
+ * @author Simon Hoffmann
+ *
+ */
 public class Chiffre {
 	public Chiffre() {
 
