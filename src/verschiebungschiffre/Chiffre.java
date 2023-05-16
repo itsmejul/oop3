@@ -14,11 +14,12 @@ public class Chiffre {
 	 * @return Sonderbuchstaben freier Text
 	 */
 	public String language(String text) {
+		//bufferedReader liest Umlaute nicht ein ... !!!!!!
 		text = text.toLowerCase();
-		text = text.replace("ä", "ae");
-		text = text.replace("ö", "oe");
-		text = text.replace("ü", "ue");
-		text = text.replace("ß", "ss");
+		text = text.replaceAll("\u00e4", "ae"); //ä
+		text = text.replaceAll("\u00f6", "oe"); //ö
+		text = text.replaceAll("\u00fc", "ue"); //ü
+		text = text.replaceAll("\u00df", "ss"); //ß
 		return text;
 	}
 
