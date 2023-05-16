@@ -8,7 +8,11 @@ public class Chiffre {
 	public Chiffre() {
 
 	}
-
+	/**
+	 * 
+	 * @param text
+	 * @return Sonderbuchstaben freier Text
+	 */
 	public String language(String text) {
 		text = text.toLowerCase();
 		text = text.replace("ä", "ae");
