@@ -44,21 +44,10 @@ public class Chiffre {
 		text = text.replaceAll("\u00f6", "oe"); //ö
 		text = text.replaceAll("\u00fc", "ue"); //ü
 		text = text.replaceAll("\u00df", "ss"); //ß
-		//Ziffern als Wort
-		text = text.replaceAll("0", "null");
-		text = text.replaceAll("1", "eins");
-		text = text.replaceAll("2", "zwei");
-		text = text.replaceAll("3", "drei");
-		text = text.replaceAll("4", "vier");
-		text = text.replaceAll("5", "fuenf");
-		text = text.replaceAll("6", "sechs");
-		text = text.replaceAll("7", "sieben");
-		text = text.replaceAll("8", "acht");
-		text = text.replaceAll("9", "neun");
 		return text;
 	}
 	/**
-	 * a = 1, b = 2, c = 3, etc. unbekannte Charakter geben -1 wieder
+	 * a=0,b=1,c=2, etc. nicht kodierte Zeichen kleiner Null
 	 * @param letter
 	 * @return Position vom Buchstaben im Alphabet
 	 */
@@ -94,11 +83,21 @@ public class Chiffre {
 		case '.': return -3;
 		case '!': return -4;
 		case '?': return -5;
+		case '0': return -10;
+		case '1': return -11;
+		case '2': return -12;
+		case '3': return -13;
+		case '4': return -14;
+		case '5': return -15;
+		case '6': return -16;
+		case '7': return -17;
+		case '8': return -18;
+		case '9': return -19;
 		default: return -1;		
 		}
 	}
 	/**
-	 * 1 = a, 2 = b, 3 = c, etc. default 1 (Zahlen kleiner 1 bzw. groeßer 26)
+	 * 0=a, 1=b, 2=c, etc. nicht kodierte Zeichen kleiner Null
 	 * @param number
 	 * @return Buchstabe von der angebenen Position
 	 */
@@ -134,6 +133,16 @@ public class Chiffre {
 		case -3: return '.';
 		case -4: return '!';
 		case -5: return '?';
+		case -10: return '0';
+		case -11: return '1';
+		case -12: return '2';
+		case -13: return '3';
+		case -14: return '4';
+		case -15: return '5';
+		case -16: return '6';
+		case -17: return '7';
+		case -18: return '8';
+		case -19: return '9';
 		default: return ' ';		
 		}
 	}
