@@ -1,6 +1,6 @@
 package verschiebungschiffre;
 /**
- * 
+ * Verschluesselt einen Text
  * @author Simon Hoffmann
  *
  */
@@ -26,6 +26,7 @@ public class Chiffre {
 		for(int i = 0; i < text.length(); i++) {
 			x = letterToNumber(text.charAt(i));
 			if (x >= 0) {
+				//nur Kodierung von Buchstaben keine anderen Symbole
 				x = (x + key) % 26;
 			}
 			encrypted = encrypted + numberToLetter(x);

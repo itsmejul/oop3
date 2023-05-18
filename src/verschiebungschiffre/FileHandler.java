@@ -5,7 +5,7 @@ import java.io.*;
 import java.nio.charset.Charset;
 
 /**
- * 
+ * Klasse fuer das Auslesen/Schreiben von Dateien
  * @author Simon Hoffmann
  *
  */
@@ -14,14 +14,14 @@ public class FileHandler {
 	private StringBuilder text;
 
 	/**
-	 * 
+	 * Konstruktor fuer Dateibehandler
 	 */
 	public FileHandler() {
 		text = new StringBuilder();
 	}
 
 	/**
-	 * 
+	 * liest text aus Datei aus
 	 * @param Dateiname
 	 */
 	public void readText(String filename) {
@@ -44,7 +44,7 @@ public class FileHandler {
 	}
 
 	/**
-	 * 
+	 * schreibt Text in eine Datei
 	 * @param filename
 	 * @param content
 	 */
@@ -65,7 +65,7 @@ public class FileHandler {
 	}
 
 	/**
-	 * 
+	 * toString Methode fuer Dateibehandler
 	 */
 	public String toString() {
 		return text.toString();
