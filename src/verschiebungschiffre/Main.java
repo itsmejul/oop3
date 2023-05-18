@@ -17,8 +17,10 @@ public class Main {
 		FileHandler text = new FileHandler();
 		text.readText(dateipfad);
 		String content = text.toString();
-		Chiffre c = new Chiffre();
+		System.out.println(content); // debug
+		Chiffre c = new Chiffre(7);
 		String g = c.language(content);
 		System.out.println(g); // debug
+		System.out.println(c.transformation(g)); // debug
 	}
 }
