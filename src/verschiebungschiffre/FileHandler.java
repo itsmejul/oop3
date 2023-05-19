@@ -27,6 +27,7 @@ public class FileHandler {
 	 * @param Dateiname
 	 */
 	public void readText(String filename) {
+		text = new StringBuilder();
 		try (
 				FileReader fr = new FileReader(filename, Charset.forName("UTF-8"));
 				BufferedReader br = new BufferedReader(fr);) {
@@ -59,7 +60,7 @@ public class FileHandler {
 	public void writeFile(String filename, String content) {
 		File datei = new File(filename);
 		try (
-				FileWriter fr = new FileWriter(datei);
+				FileWriter fr = new FileWriter(datei, Charset.forName("UTF-8"));
 				BufferedWriter br = new BufferedWriter(fr);
 				PrintWriter pr = new PrintWriter(br);) {
 			pr.println(content);

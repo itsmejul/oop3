@@ -9,7 +9,7 @@ package verschiebungschiffre;
 public class Statistic {
 
 	private String text;
-	private char[] freqOrder = { 'e', 'n', 'i', 's', 'r', 'a', 't', 'd', 'h', 'u', 'l', 'c', 'g', 'm', 'o', 'b', 'w',
+	public char[] freqOrder = { 'e', 'n', 'i', 's', 'r', 'a', 't', 'd', 'h', 'u', 'l', 'c', 'g', 'm', 'o', 'b', 'w',
 			'f', 'k', 'z', 'p', 'v', 'j', 'y', 'x', 'q' };
 	private int[] letterCount = new int[freqOrder.length]; // jedem Buchstaben Häufigkeit zuordnen
 
@@ -37,6 +37,7 @@ public class Statistic {
 		for (int i = 0; i < letterCount.length; i++) {
 			maxFreq = letterCount[i] > letterCount[maxFreq] ? i : maxFreq;
 		}
+		// System.out.println(maxFreq);
 		return maxFreq;
 		/*
 		 * int x = 0;
