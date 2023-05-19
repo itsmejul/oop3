@@ -2,12 +2,14 @@ package verschiebungschiffre;
 
 /**
  * Main-Klasse
+ * 
  * @author Simon Hoffmann, Julian Mosig von Aehrenfeld
  * @version 69.0
  */
 public class Main {
 	/**
 	 * main-Methode
+	 * 
 	 * @param args
 	 */
 	public static void main(String args[]) {
@@ -22,7 +24,7 @@ public class Main {
 		System.out.println(g); // debug
 		String f = c.transformation(g);
 		System.out.println(f); // debug
-		Dechiffre d = new Dechiffre(7);
-		System.out.println(d.transformation(f));
+		Dechiffre d = new Dechiffre();
+		System.out.println(d.decodeWithoutKey(f));
 	}
 }
