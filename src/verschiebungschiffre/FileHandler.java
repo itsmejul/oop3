@@ -6,6 +6,7 @@ import java.nio.charset.Charset;
 
 /**
  * Klasse fuer das Auslesen/Schreiben von Dateien
+ * 
  * @author Simon Hoffmann
  *
  */
@@ -22,6 +23,7 @@ public class FileHandler {
 
 	/**
 	 * liest text aus Datei aus
+	 * 
 	 * @param Dateiname
 	 */
 	public void readText(String filename) {
@@ -32,9 +34,14 @@ public class FileHandler {
 
 			do {
 				zeile = br.readLine();
-				text.append(zeile);
-				text.append(" ");
-			} while (zeile != null);
+				if (zeile != null) {
+					text.append(zeile);
+					text.append(" ");
+				} else {
+					break;
+				}
+
+			} while (true);
 			br.close();
 		} catch (FileNotFoundException fe) {
 			fe.printStackTrace(System.err);
@@ -45,6 +52,7 @@ public class FileHandler {
 
 	/**
 	 * schreibt Text in eine Datei
+	 * 
 	 * @param filename
 	 * @param content
 	 */
