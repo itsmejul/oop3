@@ -5,12 +5,13 @@ import de.oop2023.util.UserInterface;
 /**
  * Main-Klasse
  * 
- * @author Simon Hoffmann, Julian Mosig von Aehrenfeld
+ * @author Julian Mosig von Aehrenfeld
  * @version 69.0
  */
 public class Main {
 	/**
-	 * main-Methode
+	 * main-Methode fragt alles per UserInterface ab, um das Programm angenehm zu
+	 * testen
 	 * 
 	 * @param args
 	 */
@@ -42,17 +43,5 @@ public class Main {
 				dechiffre.fullTransformation();
 			}
 		}
-
-		// text.readText(dateipfad);
-		// String content = text.toString();
-		// System.out.println(content); // debug
-		// Chiffre c = new Chiffre(7);
-		// String g = c.language(content);
-		// System.out.println(g); // debug
-		// String f = c.transformation(g);
-		// System.out.println(f); // debug
-
-		// Dechiffre d = new Dechiffre();
-		// System.out.println(d.decodeWithoutKey(f));
 	}
 }

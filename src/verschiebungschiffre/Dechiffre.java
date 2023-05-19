@@ -5,24 +5,15 @@ import de.oop2023.util.UserInterface;
 /**
  * Entschluesselt einen verschluesselten Text
  * 
- * @author Simon Hoffmann
+ * @author Simon Hoffmann, Julian Mosig von Aehrenfeld
  *
  */
 public class Dechiffre extends Crypto {
 
 	/**
-	 * Konstruktor fuer unbekannten Schluessel
-	 */
-	/*
-	 * public Dechiffre() {
-	 * this.key = -1;
-	 * }
-	 */
-
-	/**
-	 * Konstruktor fuer bekannten Schluessel
+	 * Konstruktor
 	 * 
-	 * @param key
+	 * @param key der Schluessel. Bei unbekanntem Schluessel wird -1 uebergeben
 	 */
 	public Dechiffre(int key, FileHandler fileHandler, String filePath, String resultFileName) {
 		super(fileHandler, filePath, resultFileName);
@@ -30,9 +21,11 @@ public class Dechiffre extends Crypto {
 	}
 
 	/**
+	 * Entschluesselt den Text gemaess der Verschiebung anhand des Schluessels. Bei
+	 * unbekanntem Schluessel wird in Hilfsmethode uebergegangen
 	 * 
-	 * @param text
-	 * @return
+	 * @param text der zu entschluesselnde Text
+	 * @return der entschluesselte Text
 	 */
 	public String transformation(String text) {
 		if (key == -1) {
@@ -54,9 +47,11 @@ public class Dechiffre extends Crypto {
 	}
 
 	/**
-	 * gibt nach der Kryptoanalyse einen Text wieder
+	 * Fuehrt Haeufigkeitsanalyse durch und gibt den entschluesselten Text an
+	 * Benutzer aus,
+	 * bei Fehlversuch wird der zweithaeufigste Buchstabe probiert etc
 	 * 
-	 * @param text
+	 * @param text der zu entschluesselnde Text
 	 * @return dechiffrierter Text
 	 */
 	private String decodeWithoutKey(String text) {

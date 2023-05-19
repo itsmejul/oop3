@@ -1,5 +1,10 @@
 package verschiebungschiffre;
 
+/**
+ * Die Klasse Crypto stellt die Elternklasse fuer Chiffre und Dechiffre dar.
+ * Sie enthaelt alle Grundbausteine, da sich Chiffre und Dechiffre nur an
+ * wenigen Stellen unterscheiden.
+ */
 public abstract class Crypto {
 	protected int key = 0;
 	protected FileHandler fileHandler;
@@ -7,7 +12,9 @@ public abstract class Crypto {
 	protected String resultFileName;
 
 	/**
-	 * Konstruktor
+	 * Konstruktor speichert die uebergebenen Namen der Lese- und Schreibdatei sowie
+	 * eine gecachte Referenz fuer den FileHandler,
+	 * welcher in main erstellt wird
 	 */
 	public Crypto(FileHandler fileHandler, String filePath, String resultFileName) {
 		this.fileHandler = fileHandler;
@@ -15,8 +22,21 @@ public abstract class Crypto {
 		this.resultFileName = resultFileName;
 	}
 
+	/**
+	 * Die Methode verschiebt den uebergebenen Text gemaeß des Schluessels. Da
+	 * Chiffre und Dechiffre sich in dieser Methode
+	 * unterscheiden, wird sie hier noch nicht implementiert
+	 * 
+	 * @param text der Text, welcher verschoben werden soll
+	 * @return der verschobene Text
+	 */
 	public abstract String transformation(String text);
 
+	/**
+	 * Die Methode fuehrt nacheinander alle notwendigen Schritte fuer eine komplette
+	 * Ver- bzw Entschuesselung aus, sprich Datei lesen, auswerten, verschieben und
+	 * schreiben.
+	 */
 	public void fullTransformation() {
 		fileHandler.readText(filePath);
 		String content = fileHandler.toString();
@@ -27,13 +47,12 @@ public abstract class Crypto {
 	}
 
 	/**
-	 * Grossbuchstaben werden klein, Sonderbuchstaben, Ziffern als Wort
+	 * Bereinigt den Text, also ersetzt Umlaute und macht alle Buchstaben klein
 	 * 
-	 * @param text
-	 * @return Sonderbuchstaben freier Text
+	 * @param text der zu bereinigende Text
+	 * @return Sonderbuchstabenfreier Text
 	 */
 	public String language(String text) {
-		// bufferedReader liest Umlaute nicht ein ... !!!!!!
 		text = text.toLowerCase();
 		text = text.replaceAll("\u00e4", "ae"); // ä
 		text = text.replaceAll("\u00f6", "oe"); // ö
@@ -51,9 +70,12 @@ public abstract class Crypto {
 	}
 
 	/**
-	 * a=0,b=1,c=2, etc. nicht kodierte Zeichen kleiner Null
+	 * Konvertiert einen Buchstaben in eine Zahl, damit mit dieser die Verschiebung
+	 * durchgeführt werden kann.
+	 * a=0,b=1,c=2, etc. n
+	 * Nicht kodierte Zeichen sind kleiner Null
 	 * 
-	 * @param letter
+	 * @param letter der zu konvertierende Buchstabe
 	 * @return Position vom Buchstaben im Alphabet
 	 */
 	public int letterToNumber(char letter) {
@@ -144,9 +166,10 @@ public abstract class Crypto {
 	}
 
 	/**
-	 * 0=a, 1=b, 2=c, etc. nicht kodierte Zeichen kleiner Null
+	 * Konvertiert die Zahl wieder zum entsprechenden Buchstaben, analog zu
+	 * letterToNumber
 	 * 
-	 * @param number
+	 * @param number die Zahl
 	 * @return Buchstabe von der angebenen Position
 	 */
 	public char numberToLetter(int number) {
