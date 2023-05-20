@@ -15,7 +15,7 @@ public class Main {
 	 * 
 	 * @param args
 	 */
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		FileHandler fileHandler = new FileHandler();
 		String mode = UserInterface.in.requestChoiceName("\nChiffrieren oder Dechiffrieren?", "c", "d");
 		if (mode == "c") {
