@@ -4,6 +4,8 @@ package verschiebungschiffre;
  * Die Klasse Crypto stellt die Elternklasse fuer Chiffre und Dechiffre dar.
  * Sie enthaelt alle Grundbausteine, da sich Chiffre und Dechiffre nur an
  * wenigen Stellen unterscheiden.
+ * 
+ * @author Simon Hoffmann, Julian Mosig von Aehrenfeld
  */
 public abstract class Crypto {
 	protected int key = 0;
@@ -15,6 +17,10 @@ public abstract class Crypto {
 	 * Konstruktor speichert die uebergebenen Namen der Lese- und Schreibdatei sowie
 	 * eine gecachte Referenz fuer den FileHandler,
 	 * welcher in main erstellt wird
+	 * 
+	 * @param fileHandler liefert Lese- und Schreibefunktion fuer Dateien
+	 * @param filePath Dateipfad von auszulesender Datei
+	 * @param resultFileName Dateiname fuer die Ausgabe des bearbeiteten Textes
 	 */
 	public Crypto(FileHandler fileHandler, String filePath, String resultFileName) {
 		this.fileHandler = fileHandler;
@@ -42,6 +48,7 @@ public abstract class Crypto {
 		String content = fileHandler.toString();
 		String cleanedContent = language(content);
 		String transformationResult = transformation(cleanedContent);
+		chart();
 		System.out.println(transformationResult);
 		fileHandler.writeFile(resultFileName, transformationResult);
 	}
@@ -62,12 +69,9 @@ public abstract class Crypto {
 	}
 
 	/**
-	 * Ausgabe von Chiffriertabelle
+	 * Die Methode gibt die angewendete Chiffrier- bzw. Dechiffriertabelle aus.
 	 */
-	public void chart() {
-		System.out.println("a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z");
-		System.out.println("0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25");
-	}
+	public abstract void chart();
 
 	/**
 	 * Konvertiert einen Buchstaben in eine Zahl, damit mit dieser die Verschiebung

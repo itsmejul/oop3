@@ -7,7 +7,7 @@ import java.nio.charset.Charset;
 /**
  * Klasse fuer das Auslesen/Schreiben von Dateien
  * 
- * @author Simon Hoffmann
+ * @author Simon Hoffmann, Julian Mosig von Aehrenfeld
  *
  */
 public class FileHandler {
@@ -22,9 +22,9 @@ public class FileHandler {
 	}
 
 	/**
-	 * liest text aus Datei aus
+	 * Liest einen Text(String) aus der Datei aus.
 	 * 
-	 * @param Dateiname
+	 * @param filename Name der auszulesenden Datei
 	 */
 	public void readText(String filename) {
 		text = new StringBuilder();
@@ -52,10 +52,10 @@ public class FileHandler {
 	}
 
 	/**
-	 * schreibt Text in eine Datei
+	 * Schreibt einen Text(String) in eine Datei
 	 * 
-	 * @param filename
-	 * @param content
+	 * @param filename Name der Datei, in die der Inhalt geschrieben werden soll
+	 * @param content Inhalt fuer die Datei
 	 */
 	public void writeFile(String filename, String content) {
 		File datei = new File(filename);

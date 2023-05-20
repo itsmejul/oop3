@@ -5,7 +5,7 @@ import de.oop2023.util.UserInterface;
 /**
  * Main-Klasse
  * 
- * @author Julian Mosig von Aehrenfeld
+ * @author Simon Hoffmann, Julian Mosig von Aehrenfeld
  * @version 69.0
  */
 public class Main {

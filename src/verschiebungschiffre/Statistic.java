@@ -3,7 +3,7 @@ package verschiebungschiffre;
 /**
  * Haeufigkeitsanalyse der Buchstaben fuer die Dechiffre
  * 
- * @author Simon Hoffmann
+ * @author Simon Hoffmann, Julian Mosig von Aehrenfeld
  *
  */
 public class Statistic {
@@ -16,7 +16,7 @@ public class Statistic {
 	/**
 	 * Konstruktor
 	 * 
-	 * @param text
+	 * @param text Text der eine Buchstabenzaehlung erhalten soll
 	 */
 	public Statistic(String text) {
 		this.text = text;
@@ -28,8 +28,7 @@ public class Statistic {
 	/**
 	 * ueberprueft die Haeufigkeitsverteilung
 	 * 
-	 * @return wahr wenn Haeufigkeitsverteilung der deutschen Buchstabenhaeufigkeit
-	 *         uebereinstimmt
+	 * @return maxFreq Integerwert repraesentativ fuer den haeufigsten Buchstaben (orientiert an freqOrder-Array)
 	 */
 	public int maxFrequencyIndex() {
 		int maxFreq = 0;
@@ -37,23 +36,12 @@ public class Statistic {
 		for (int i = 0; i < letterCount.length; i++) {
 			maxFreq = letterCount[i] > letterCount[maxFreq] ? i : maxFreq;
 		}
-		// System.out.println(maxFreq);
 		return maxFreq;
-		/*
-		 * int x = 0;
-		 * for(int i = 0; i<letterCount.length - 1; i++) {
-		 * if(letterCount[i] < letterCount[i+1]) {
-		 * x = x +1;
-		 * }
-		 * }
-		 * if(x == 0) {
-		 * return true;
-		 * }else {
-		 * return false;
-		 * }
-		 */
 	}
 
+	/**
+	 * zaehlt die Haeufigkeit aller Buchstaben
+	 */
 	public void textToFrequency() {
 		text = text.replaceAll("[^\\p{IsAlphabetic}]+", ""); // alle Sonderzeichen ersetzen
 		text = text.replaceAll(" ", ""); // alle Leerzeichen entfernen
