@@ -83,6 +83,43 @@ public abstract class Crypto {
 	 * @return Position vom Buchstaben im Alphabet
 	 */
 	public int letterToNumber(char letter) {
+		if(letter >= 'a' && letter <= 'z'){
+			return (letter - 'a');
+		} else {
+			switch (letter) {
+				case ',':
+					return -2;
+				case '.':
+					return -3;
+				case '!':
+					return -4;
+				case '?':
+					return -5;
+				case '0':
+					return -10;
+				case '1':
+					return -11;
+				case '2':
+					return -12;
+				case '3':
+					return -13;
+				case '4':
+					return -14;
+				case '5':
+					return -15;
+				case '6':
+					return -16;
+				case '7':
+					return -17;
+				case '8':
+					return -18;
+				case '9':
+					return -19;
+				default:
+					return -1;
+			}
+		}
+		/*
 		switch (letter) {
 			case 'a':
 				return 0;
@@ -166,7 +203,7 @@ public abstract class Crypto {
 				return -19;
 			default:
 				return -1;
-		}
+		}*/
 	}
 
 	/**
@@ -177,6 +214,43 @@ public abstract class Crypto {
 	 * @return Buchstabe von der angebenen Position
 	 */
 	public char numberToLetter(int number) {
+		if(number >= 0 && number <= 25){
+			return (char) (number + 'a');
+		}else{
+			switch (number) {
+				case -2:
+				return ',';
+			case -3:
+				return '.';
+			case -4:
+				return '!';
+			case -5:
+				return '?';
+			case -10:
+				return '0';
+			case -11:
+				return '1';
+			case -12:
+				return '2';
+			case -13:
+				return '3';
+			case -14:
+				return '4';
+			case -15:
+				return '5';
+			case -16:
+				return '6';
+			case -17:
+				return '7';
+			case -18:
+				return '8';
+			case -19:
+				return '9';
+			default:
+				return ' ';
+		}
+		}
+		/*
 		switch (number) {
 			case 0:
 				return 'a';
@@ -260,6 +334,6 @@ public abstract class Crypto {
 				return '9';
 			default:
 				return ' ';
-		}
+		}*/
 	}
 }
